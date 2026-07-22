@@ -3,18 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Sistema</title>
+    <title>Hiblook - Anime Excellence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/STYTLE.CSS">
 </head>
 <body>
-   
-    
+<header class="main-header">
+    <div class="nav-container">
+        
+        <div class="nav-left">
+            <div class="logo">
+                <a href="INDEX.html">
+                    <img src="IMG/El anime es eterno, tu pasión tambien lo es.png" alt="Hiblook Logo" class="logo-bonsai">
+                </a>
+            </div>
 
+            <nav class="nav-principal">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    &#9776; 
+                </label>
 
+                <ul class="menu-navegacion">
+                    <li><a href="INDEX.html">Inicio</a></li>
+                    <li><a href="servicio.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
 
+        <div class="nav-actions">
+            <div class="redes-sociales-nav">
+                <a href="https://wa.me/" target="_blank" title="WhatsApp"><img src="IMG/whatsapp (2).png" alt="WhatsApp"></a>
+            </div>
 
+            <button class="search-btn" title="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="cart-btn" id="open-cart" title="Carrito">
+                <i class="fa-solid fa-bag-shopping"></i> Carrito
+                <span class="cart-badge">1</span>
+            </button>
+        </div>
+    </div>
+</header>
 
+    <main>
+       <section class="hero">
+                <img src="IMG/banner.png" alt="Banner Principal" class="hero-slide">
+                <img src="IMG/banner1.png" alt="Banner Secundario 1" class="hero-slide">
+                <img src="IMG/banner2.png" alt="Banner Secundario 2" class="hero-slide">
+                <img src="IMG/banner3.png" alt="Banner Secundario 3" class="hero-slide">
+            </section>
+             
+        <div class="container">
+            <section class="contenido">
+                <div class="articulos-grid" id="productos">
+                    <article class="producto-card" data-id="1" data-name="Peluche Totoro Grande" data-price="25.99">
+                        <div class="article-img">
+                            <img src="IMG/1foto.png" alt="Peluche Totoro Grande">
+                        </div>
+                        <div class="article-info">
+                            <span class="categoria-tag">PELUCHES</span>
+                            <h3>Peluche Totoro Grande</h3>
+                            <span class="precio">$25.99</span>
+                            <button class="add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> Agregar al carrito</button>
+                        </div>
+                    </article>
 
-    <script src="js/script.js"></script>
+                    <article class="producto-card" data-id="2" data-name="Peluche Pikachu Jumbo" data-price="32.50">
+                        <div class="article-img">
+                            <img src="IMG/2foto.png" alt="Peluche Pikachu Jumbo">
+                        </div>
+                        <div class="article-info">
+                            <span class="categoria-tag">PELUCHES</span>
+                            <h3>Peluche Pikachu Jumbo</h3>
+                            <span class="precio">$32.50</span>
+                            <button class="add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> Agregar al carrito</button>
+                        </div>
+                    </article>
+
+                    <article class="producto-card" data-id="3" data-name="Set Pulseras Demon Slayer" data-price="14.99">
+                        <div class="article-img">
+                            <img src="IMG/3foto.png" alt="Set Pulseras Demon Slayer">
+                        </div>
+                        <div class="article-info">
+                            <span class="categoria-tag">PULSERAS</span>
+                            <h3>Set Pulseras Demon Slayer</h3>
+                            <span class="precio">$14.99</span>
+                            <button class="add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> Agregar al carrito</button>
+                        </div>
+                    </article>
+
+                    <article class="producto-card" data-id="4" data-name="Figura Goku Super Saiyan" data-price="45.00">
+                        <div class="article-img">
+                            <img src="IMG/4foto.png" alt="Figura Goku Super Saiyan">
+                        </div>
+                        <div class="article-info">
+                            <span class="categoria-tag">FIGURAS</span>
+                            <h3>Figura Goku Super Saiyan</h3>
+                            <span class="precio">$45.00</span>
+                            <button class="add-to-cart-btn"><i class="fa-solid fa-basket-shopping"></i> Agregar al carrito</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Hiblook</h2>
+                <p>Tu tienda favorita de mercancía anime. Peluches, accesorios y coleccionables curados con amor para verdaderos fans.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Tienda</h3>
+                <ul>
+                    <li><a href="#">Catálogo Completo</a></li>
+                    <li><a href="#">Peluches</a></li>
+                    <li><a href="#">Figuras</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="login.html">HIBLOOK</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hiblook. Todos los derechos reservados.</p>
+            <p class="made-by">Hecho con amor para la comunidad Geek</p>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>Tu Carrito <span class="item-count">(1 artículo)</span></h2>
+                <button class="close-cart" id="close-cart">&times;</button>
+            </div>
+            
+            <div class="cart-body">
+                <div class="cart-items-container">
+                    <div class="cart-item">
+                        <img src="IMG/camiseta-placeholder.jpg" alt="Camiseta Attack on Titan" class="item-img">
+                        <div class="item-details">
+                            <h3>Camiseta Attack on Titan</h3>
+                            <p class="item-category">Ropa</p>
+                            <div class="quantity-controls">
+                                <button>-</button>
+                                <input type="text" value="1" readonly>
+                                <button>+</button>
+                            </div>
+                        </div>
+                        <div class="item-price-delete">
+                            <span class="item-price">$19.99</span>
+                            <button class="delete-item" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                    <button class="clear-cart-btn">Vaciar carrito</button>
+                </div>
+
+                <div class="order-summary">
+                    <h3>Resumen del pedido</h3>
+                    <div class="summary-row">
+                        <span>Subtotal (1 items)</span>
+                        <span>$19.99</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío</span>
+                        <span>A coordinar</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span>Total estimado</span>
+                        <span>$19.99</span>
+                    </div>
+                    
+                    <a href="https://wa.me/50376543210?text=Hola,%20quiero%20coordinar%20mi%20pedido" target="_blank" class="whatsapp-order-btn">
+                        <i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp
+                    </a>
+                    <p class="disclaimer">Al enviar el pedido, te contactaremos para coordinar el pago y envío. No se realizará ningún cargo ahora.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/script.js"></script>
 </body>
 </html>
