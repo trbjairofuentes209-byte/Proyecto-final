@@ -1,0 +1,187 @@
+/* ===========================
+   ESTILOS GENERALES
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("../img/fondo.jpg") center center/cover no-repeat;
+    overflow:hidden;
+}
+
+/* Capa oscura sobre la imagen */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+/* ===========================
+   FORMULARIO
+=========================== */
+
+#formLogin{
+
+    position:relative;
+    z-index:2;
+
+    width:420px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 8px 32px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   TITULO
+=========================== */
+
+#formLogin h2{
+
+    color:#fff;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:32px;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+#formLogin input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.20);
+
+    color:#fff;
+
+    font-size:16px;
+
+}
+
+#formLogin input::placeholder{
+
+    color:#eee;
+
+}
+
+#formLogin input:focus{
+
+    outline:none;
+
+    background:rgba(255,255,255,.28);
+
+}
+
+/* ===========================
+   BOTÓN
+=========================== */
+
+#formLogin button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#formLogin button:hover{
+
+    background:#1d4ed8;
+
+    transform:scale(1.03);
+
+}
+
+/* ===========================
+   ENLACES
+=========================== */
+
+#formLogin p{
+
+    color:white;
+
+    margin-top:20px;
+
+    text-align:center;
+
+}
+
+#formLogin a{
+
+    color:#7dd3fc;
+
+    text-decoration:none;
+
+}
+
+#formLogin a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:480px){
+
+#formLogin{
+
+width:90%;
+
+padding:30px;
+
+}
+
+}

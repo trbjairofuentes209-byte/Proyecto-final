@@ -1,0 +1,256 @@
+/*=========================================
+            RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:url("../img/fondo.jpg") center center/cover no-repeat;
+
+    position:relative;
+
+}
+
+/* Capa oscura */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+}
+
+/*=========================================
+          CONTENEDOR
+=========================================*/
+
+.contenedor{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/*=========================================
+        CAJA REGISTRO
+=========================================*/
+
+.registro-box{
+
+    width:430px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+
+}
+
+/*=========================================
+             LOGO
+=========================================*/
+
+.logo{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:30px;
+
+}
+
+.logo i{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+.logo h1{
+
+    font-size:34px;
+
+    margin-bottom:8px;
+
+}
+
+.logo p{
+
+    color:#ddd;
+
+}
+
+/*=========================================
+          INPUTS
+=========================================*/
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:20px;
+
+}
+
+.input-box i{
+
+    position:absolute;
+
+    left:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:white;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:14px 15px 14px 45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.20);
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+.input-box input::placeholder{
+
+    color:#eee;
+
+}
+
+.input-box input:focus{
+
+    outline:none;
+
+    background:rgba(255,255,255,.28);
+
+}
+
+/*=========================================
+          BOTÓN
+=========================================*/
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================
+          ENLACE LOGIN
+=========================================*/
+
+.login-link{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.login-link a{
+
+    color:#7dd3fc;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.login-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:500px){
+
+.registro-box{
+
+width:90%;
+
+padding:30px;
+
+}
+
+.logo h1{
+
+font-size:28px;
+
+}
+
+}

@@ -6,14 +6,25 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Iniciar Sesión</title>
-
+     <title>Iniciar Sesión | SmartInventory</title>
+ <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
+    <div class="contenedor">
 
-    <form id="formLogin">
+        <div class="login-box">
+
+             <div class="logo">
+
+                <i class="fa-solid fa-boxes-stacked"></i>
+
+                <h1>SmartInventory</h1>
+
+                <p>Control inteligente de inventario</p>
+
+            </div>
+          <form id="formLogin">
 
         <input
             type="email"
@@ -27,14 +38,32 @@
             placeholder="Contraseña"
             required>
 
-        <button type="submit">
-            Iniciar Sesión
-        </button>
+         <button type="submit">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Iniciar Sesión
+
+                </button>
 
         <p id="mensajeLogin"></p>
+         <div class="extras">
 
-    </form>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
 
+                </div>
+
+                <div class="registro">
+
+                    ¿No tienes cuenta?
+
+                    <a href="registro.html">Crear cuenta</a>
+
+                </div>
+
+     </form>
+    </div>
+ </div>
     <script type="module" src="js/login.js"></script>
 
 </body>
