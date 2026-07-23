@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Categorías</title>
+  <link rel="stylesheet" href="css/categoria.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>SmartInventory</h2>
+      <a href="dashboard.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="categorias.html">Categorías</a>
+    </aside>
+
+    <main class="contenido">
+      <h2>Crear Nueva Categoría</h2>
+      
+      <form id="form-crear-categoria">
+        <div>
+          <label for="nombre-categoria">Nombre de la Categoría:</label>
+          <input type="text" id="nombre-categoria" name="nombre" required placeholder="Ej. Bebidas, Snacks..." />
+        </div>
+        <br>
+        <button type="submit" id="btn-guardar-cat">Guardar Categoría</button>
+      </form>
+
+      <h3 style="margin-top: 30px;">Categorías Existentes</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCategorias">
+          <!-- Se llenarán dinámicamente -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script type="module" src="js/categorias.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* =====================================
+   ESTILO DE TARJETAS GRID PARA CATEGORÍAS
+===================================== */
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card-categoria {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-categoria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-body h3 {
+    font-size: 20px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.card-meta {
+    font-size: 13px;
+    color: #b45309;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.read-more {
+    font-size: 14px;
+    color: #0f172a;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-top: 5px;
+    width: fit-content;
+}
+
+.read-more:hover {
+    color: #2563eb;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media(max-width: 900px) {
+    .grid-categorias {
+        grid-template-columns: 1fr;
+    }
+}
