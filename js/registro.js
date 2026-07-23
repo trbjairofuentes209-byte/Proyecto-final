@@ -25,18 +25,17 @@ formulario.addEventListener("submit", async (event) => {
     });
 
     if (error) {
+        mensaje.textContent = error.message;
+        mensaje.style.color = "red";
+        mensaje.style.display = "block";
+        return;
+    }
 
-    mensaje.textContent = error.message;
-    mensaje.style.color = "red";
+    mensaje.textContent = "✔ Cuenta creada correctamente.";
+    mensaje.style.color = "green";
+    mensaje.style.display = "block";
 
-    return;
-
-}
-
-mensaje.textContent = "✔ Cuenta creada correctamente.";
-mensaje.style.color = "green";
-
-formulario.reset();
+    formulario.reset();
 
 console.log(data);
 
