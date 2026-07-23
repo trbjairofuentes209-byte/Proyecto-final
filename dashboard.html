@@ -1,15 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | SmartInventory</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
 </head>
 
 <body>
 
-    <h1>Bienvenido a SmartInventory</h1>
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>SmartInventory</h2>
+
+        <a href="dashboard.html">🏠 Inicio</a>
+
+        <a href="productos.html">📦 Productos</a>
+
+        <a href="#">📋 Movimientos</a>
+
+        <a href="#" id="cerrarSesion">🚪 Cerrar sesión</a>
+
+    </aside>
+
+
+    <main class="contenido">
+
+        <h1>Panel Principal</h1>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2 id="totalProductos">0</h2>
+
+                <p>Productos</p>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="stockTotal">0</h2>
+
+                <p>Existencias</p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
 
 </body>
-
 </html>
+</body>
+
+</html>ml>
