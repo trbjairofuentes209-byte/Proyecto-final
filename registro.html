@@ -1,43 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-     <link rel="stylesheet" href="css/registro.css">
+
+    <title>Crear Cuenta | SmartInventory</title>
+
+    <link rel="stylesheet" href="css/registro.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-    <form id="formRegistro">
-<input
-    type="text"
-    id="nombre"
-    placeholder="Nombre completo"
-    required>
+<div class="contenedor">
 
-<input
-    type="email"
-    id="correo"
-    placeholder="Correo electrónico"
-    required>
+    <div class="registro-box">
 
-<input
-    type="password"
-    id="password"
-    placeholder="Contraseña"
-    required>
+        <div class="logo">
 
-   <button type="submit">
-    Crear cuenta
-</button>
+            <i class="fa-solid fa-boxes-stacked"></i>
 
-<p id="mensajeRegistro"></p>
+            <h1>SmartInventory</h1>
 
-</form>
-    
+            <p>Crear una nueva cuenta</p>
 
+        </div>
 
+        <form id="formRegistro">
 
-   <script type="module" src="js/registro.js"></script>
+            <div class="input-box">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre completo"
+                    required>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                    type="email"
+                    id="correo"
+                    placeholder="Correo electrónico"
+                    required>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Contraseña"
+                    required>
+
+            </div>
+
+            <button type="submit">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Crear cuenta
+
+            </button>
+
+        </form>
+
+        <div class="login-link">
+
+            ¿Ya tienes una cuenta?
+
+            <a href="login.html">Iniciar sesión</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/registro.js"></script>
+
 </body>
 </html>
