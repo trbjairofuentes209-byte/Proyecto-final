@@ -11,7 +11,7 @@ formulario.addEventListener("submit", async (event) => {
 
     const { error } = await supabase.auth.resetPasswordForEmail(correo, {
 
-        redirectTo: "http://127.0.0.1:5500/nueva-password.html"
+        redirectTo: "http://127.0.0.1:5500/Proyecto-final/nueva-password.html"
 
     });
 
