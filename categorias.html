@@ -11,55 +11,48 @@
   <div class="dashboard">
     <aside class="sidebar">
       <h2>SmartInventory</h2>
-     <nav>
-
-        <a href="dashboard.html">
-            🏠 Inicio
-        </a>
-
-        <a href="productos.html">
-            📦 Productos
-        </a>
-
-        <a href="categorias.html">
-            📋 Categorías
-        </a>
-        <a href="ventas.html" id="Ventas">
-            📋 Ventas
-        </a>
-        <a href="perfil.html" id="MiPerfil">
-            👤 Mi Perfil
-        </a>
-        <a href="login.html" id="cerrarSesion">
-            🚪 Cerrar sesión
-        </a>
-
-    </nav>
+      <nav>
+        <a href="dashboard.html">🏠 Inicio</a>
+        <a href="productos.html">📦 Productos</a>
+        <a href="categorias.html">📋 Categorías</a>
+        <a href="ventas.html" id="Ventas">📋 Ventas</a>
+        <a href="perfil.html" id="MiPerfil">👤 Mi Perfil</a>
+        <a href="login.html" id="cerrarSesion">🚪 Cerrar sesión</a>
+      </nav>
     </aside>
 
     <main class="contenido">
-      <h2>Crear Nueva Categoría</h2>
+      <h2 id="titulo-form">Crear Nueva Categoría</h2>
       
       <form id="form-crear-categoria">
+        <input type="hidden" id="categoria-id" value="">
         <div>
           <label for="nombre-categoria">Nombre de la Categoría:</label>
           <input type="text" id="nombre-categoria" name="nombre" required placeholder="Ej. Bebidas, Snacks..." />
         </div>
         <br>
         <button type="submit" id="btn-guardar-cat">Guardar Categoría</button>
+        <button type="button" id="btn-cancelar-edicion" style="display: none;">Cancelar Edición</button>
       </form>
 
-      <h3 style="margin-top: 30px;">Categorías Existentes</h3>
+      <hr style="margin: 30px 0;">
+
+      <div class="buscador-container" style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+        <label for="buscarCategoria" style="font-size: 1.2rem;">🔍</label>
+        <input type="text" id="buscarCategoria" placeholder="Buscar categoría..." style="padding: 8px; width: 100%; max-width: 300px;">
+      </div>
+
+      <h3>Categorías Existentes</h3>
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody id="tablaCategorias">
-          <!-- Se llenarán dinámicamente -->
-        </tbody>
+          </tbody>
       </table>
     </main>
   </div>
