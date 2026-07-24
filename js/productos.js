@@ -66,7 +66,18 @@ export async function cargarProductos() {
 
 // Función para eliminar un producto por ID
 async function eliminarProducto(id) {
-  if (!confirm('¿Deseas eliminar este producto?')) return;
+  const result = await Swal.fire({
+    title: '¿Deseas eliminar este producto?',
+    text: "Esta acción no se puede revertir",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#1e63c5',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  });
+
+  if (!result.isConfirmed) return;
 
   const { error } = await supabase
     .from('productos')
@@ -74,8 +85,19 @@ async function eliminarProducto(id) {
     .eq('id', id);
 
   if (error) {
-    alert('Error al eliminar: ' + error.message);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Error al eliminar: ' + error.message,
+      confirmButtonColor: '#1e63c5'
+    });
   } else {
+    Swal.fire({
+      icon: 'success',
+      title: '¡Eliminado!',
+      text: 'El producto se ha eliminado correctamente.',
+      confirmButtonColor: '#1e63c5'
+    });
     cargarProductos(); // Refresca la tabla tras eliminar
   }
 }
