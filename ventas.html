@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventas | SmartInventory</title>
+    <link rel="stylesheet" href="css/ventas.css">
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
@@ -15,6 +16,9 @@
             <a href="productos.html">📦 Productos</a>
             <a href="categorias.html">📋 Categorías</a>
             <a href="ventas.html" id="Ventas">📋 Ventas</a>
+            <a href="perfil.html" id="MiPerfil">
+            👤 Mi Perfil
+        </a>
             <a href="login.html" id="cerrarSesion">🚪 Cerrar sesión</a>
         </nav>
     </aside>
@@ -22,22 +26,29 @@
     <main class="contenido">
         <h2>Registrar Nueva Venta</h2>
         
-        <section>
-            <label for="selectProducto">Buscar Producto:</label>
-            <select id="selectProducto">
-                <option value="">-- Selecciona un producto --</option>
-            </select>
+       <section>
+    <label for="selectCategoriaFiltro">Filtrar por Categoría:</label>
+    <select id="selectCategoriaFiltro">
+        <option value="">-- Todas las categorías --</option>
+    </select>
 
-            <label for="cantidadVenta">Cantidad a vender:</label>
-            <input type="number" id="cantidadVenta" min="1" value="1">
+    <label for="selectProducto">Buscar Producto:</label>
+    <select id="selectProducto">
+        <option value="">-- Selecciona un producto --</option>
+    </select>
 
-            <button id="btnRegistrarVenta">Registrar Venta</button>
-        </section>
+    <label for="cantidadVenta">Cantidad a vender:</label>
+    <input type="number" id="cantidadVenta" min="1" value="1">
+
+    <button id="btnRegistrarVenta">Registrar Venta</button>
+</section>
 
         <hr>
 
         <h2>Historial de Ventas</h2>
-        
+        <div class="resumen-ventas">
+    <h3>Total Vendido: <span id="totalVentasAcumulado">$0.00</span></h3>
+</div>
         <table>
             <thead>
                 <tr>

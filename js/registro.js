@@ -31,6 +31,25 @@ formulario.addEventListener("submit", async (event) => {
         return;
     }
 
+
+
+const usuario = data.user;
+
+const { error: errorPerfil } = await supabase
+    .from("perfiles")
+    .insert([
+        {
+            id: usuario.id,
+            nombre: nombre,
+            empresa: "",
+            foto: ""
+        }
+    ]);
+
+if (errorPerfil) {
+    console.error("Error al crear el perfil:", errorPerfil);
+}
+
     mensaje.textContent = "✔ Cuenta creada correctamente.";
     mensaje.style.color = "green";
     mensaje.style.display = "block";

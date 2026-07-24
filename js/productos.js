@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   cargarProductos();
 });
 
-// Obtener registros de Supabase y pintarlos en el DOM
+// Obtener registros de Supabase con JOIN a Categorias
 export async function cargarProductos() {
   if (!tablaProductos) return;
 
+  // Realizamos una consulta relacionando la tabla de Categorias
   const { data: productos, error } = await supabase
     .from('productos')
-    .select('*')
+    .select('*, Categorias(nombre)')
     .order('id', { ascending: false });
 
   if (error) {
@@ -29,9 +30,12 @@ export async function cargarProductos() {
   productos.forEach(p => {
     const fila = document.createElement('tr');
     
+    // Si p.Categorias existe trae p.Categorias.nombre, sino muestra 'Sin categoría'
+    const nombreCategoria = p.Categorias ? p.Categorias.nombre : 'Sin categoría';
+
     fila.innerHTML = `
       <td>${p.nombre || ''}</td>
-      <td>${p.categoria || ''}</td>
+      <td>${nombreCategoria}</td>
       <td>${p.cantidad ?? 0}</td>
       <td>$${Number(p.precio || 0).toFixed(2)}</td>
       <td>
