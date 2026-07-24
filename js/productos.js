@@ -1,40 +1,39 @@
 import { supabase } from './config.js';
 
-// Referencia al tbody del HTML
+// Referencia al contenedor de la tabla
 const tablaProductos = document.getElementById('tablaProductos');
 
-// 1. Cargar productos en cuanto la página esté lista
+// Cargar productos al iniciar la página
 document.addEventListener('DOMContentLoaded', () => {
   cargarProductos();
 });
 
-// 2. Función principal para consultar Supabase y pintar la tabla
+// Obtener registros de Supabase y pintarlos en el DOM
 export async function cargarProductos() {
   if (!tablaProductos) return;
 
-  // Consulta a la tabla 'productos' en Supabase
   const { data: productos, error } = await supabase
     .from('productos')
     .select('*')
-    .order('id', { ascending: false }); // Muestra primero los más recientes
+    .order('id', { ascending: false });
 
   if (error) {
     console.error('Error al cargar productos:', error.message);
     return;
   }
 
-  // Limpiar la tabla antes de insertar
+  // Limpiar contenido previo
   tablaProductos.innerHTML = '';
 
-  // Renderizar las filas dinámicamente
+  // Renderizar cada fila
   productos.forEach(p => {
     const fila = document.createElement('tr');
     
     fila.innerHTML = `
-      <td>${p.nombre}</td>
-      <td>${p.categoria}</td>
-      <td>${p.cantidad}</td>
-      <td>$${Number(p.precio).toFixed(2)}</td>
+      <td>${p.nombre || ''}</td>
+      <td>${p.categoria || ''}</td>
+      <td>${p.cantidad ?? 0}</td>
+      <td>$${Number(p.precio || 0).toFixed(2)}</td>
       <td>
         <button class="btn-editar" data-id="${p.id}">Editar</button>
         <button class="btn-eliminar" data-id="${p.id}">Eliminar</button>
@@ -44,7 +43,7 @@ export async function cargarProductos() {
     tablaProductos.appendChild(fila);
   });
 
-  // Asignar eventos de eliminación a los botones recién creados
+  // Asignar listeners a los botones de Eliminar
   document.querySelectorAll('.btn-eliminar').forEach(boton => {
     boton.addEventListener('click', (e) => {
       const id = e.target.getAttribute('data-id');
@@ -52,7 +51,7 @@ export async function cargarProductos() {
     });
   });
 
-  // Asignar eventos para redirigir a editar
+  // Asignar listeners a los botones de Editar
   document.querySelectorAll('.btn-editar').forEach(boton => {
     boton.addEventListener('click', (e) => {
       const id = e.target.getAttribute('data-id');
@@ -61,7 +60,7 @@ export async function cargarProductos() {
   });
 }
 
-// 3. Función para eliminar un producto
+// Función para eliminar un producto por ID
 async function eliminarProducto(id) {
   if (!confirm('¿Deseas eliminar este producto?')) return;
 
@@ -73,24 +72,6 @@ async function eliminarProducto(id) {
   if (error) {
     alert('Error al eliminar: ' + error.message);
   } else {
-    // Vuelve a consultar Supabase para refrescar la tabla de inmediato
-    cargarProductos();
+    cargarProductos(); // Refresca la tabla tras eliminar
   }
-}
-import { supabase } from './config.js';
-import { cargarProductos } from './productos.js';
-
-// Dentro de tu evento de Submit para crear el producto:
-const { error } = await supabase
-  .from('productos')
-  .insert([nuevoProducto]);
-
-if (error) {
-  alert('Error al guardar: ' + error.message);
-} else {
-  alert('¡Producto creado con éxito!');
-  formProducto.reset();
-  modal.classList.remove('activo'); // Cierra el modal
-  
-  cargarProductos(); // <--- ESTO actualiza la tabla al instante
 }

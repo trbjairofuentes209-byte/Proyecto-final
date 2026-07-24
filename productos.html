@@ -1,69 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Productos</title>
-
-<link rel="stylesheet" href="css/productos.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link rel="stylesheet" href="css/productos.css">
 </head>
-
 <body>
 
-<div class="dashboard">
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>SmartInventory</h2>
+      <a href="dashboard.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+    </aside>
 
-<aside class="sidebar">
+    <main class="contenido">
+      <h2>Gestión de Productos</h2>
+      <a href="crear.html" class="btn-crear">Crear Producto</a>
 
-<h2>SmartInventory</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProductos">
+          </tbody>
+      </table>
+    </main>
+  </div>
 
-<a href="dashboard.html">Inicio</a>
-
-<a href="productos.html">Productos</a>
-
-</aside>
-
-<main class="contenido">
- <h2>Crear Producto</h2>
-<a href="crear.html" class="btn-crear">Crear Producto</a>
-
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Nombre</th>
-
-<th>Categoría</th>
-
-<th>Cantidad</th>
-
-<th>Precio</th>
-
-<th>Acciones</th>
-
-</tr>
-
-</thead>
-
-<tbody id="tablaProductos">
-
-</tbody>
-
-</table>
-
-</main>
-
-</div>
-
-<script type="module" src="js/productos.js"></script>
-
+  <script type="module" src="js/productos.js"></script>
 </body>
-
 </html>
