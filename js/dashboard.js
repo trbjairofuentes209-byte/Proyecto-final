@@ -73,3 +73,8 @@ if (errorCategorias) {
         categorias.length;
 
 }
+
+
+const productosStockBajo = productos.filter(producto => producto.cantidad <= 10);
+
+document.getElementById("stockBajo").textContent = productosStockBajo.length;
