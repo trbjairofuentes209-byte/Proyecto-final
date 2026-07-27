@@ -78,3 +78,33 @@ if (errorCategorias) {
 const productosStockBajo = productos.filter(producto => producto.cantidad <= 10);
 
 document.getElementById("stockBajo").textContent = productosStockBajo.length;
+
+
+
+let valorInventario = 0;
+
+productos.forEach(producto => {
+
+    valorInventario += producto.precio * producto.cantidad;
+
+});
+
+document.getElementById("valorInventario").textContent =
+    "$" + valorInventario.toFixed(2);
+
+    
+
+    const listaStockBajo = document.getElementById("listaStockBajo");
+
+productos
+    .filter(producto => producto.cantidad <= 10)
+    .forEach(producto => {
+
+        const item = document.createElement("li");
+
+        item.textContent =
+            `${producto.nombre} (${producto.cantidad})`;
+
+        listaStockBajo.appendChild(item);
+
+    });
