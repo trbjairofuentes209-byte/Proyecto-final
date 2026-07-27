@@ -12,7 +12,7 @@ async function cargarCategoriasSelect() {
         .select('*');
 
     if (error) {
-        console.eror('Error al cargar categorías:', error.message);
+        console.error('Error al cargar categorías:', error.message);
         selectCategoria.innerHTML = '<option value="">Error al cargar categorías</option>';
         return;
     }
@@ -21,7 +21,7 @@ async function cargarCategoriasSelect() {
 
     categorias.forEach(cat => {
         const option = document.createElement('option');
-        option.value = cat.id; // Guarda el ID numérico para la llave foránea de la base de datos
+        option.value = cat.id; // Guarda el ID numérico para la llave foránea
         option.textContent = cat.nombre; // Muestra el nombre de la categoría
         selectCategoria.appendChild(option);
     });
@@ -36,15 +36,13 @@ if (formCrear) {
   formCrear.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Estructura adaptada exactamente a las columnas de tu tabla en Supabase
     const nuevoProducto = {
       nombre: document.getElementById('nombre').value.trim(),
-      Categorias_id: parseInt(document.getElementById('categoria').value, 10), // Envía el ID seleccionado
+      Categorias_id: parseInt(document.getElementById('categoria').value, 10),
       cantidad: parseInt(document.getElementById('cantidad').value, 10),
       precio: parseFloat(document.getElementById('precio').value)
     };
 
-    // Petición a Supabase
     const { error } = await supabase
       .from('productos')
       .insert([nuevoProducto]);
