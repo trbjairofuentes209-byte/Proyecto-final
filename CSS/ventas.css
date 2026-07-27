@@ -1,0 +1,204 @@
+/*=====================================
+  CONTENIDO PRINCIPAL
+=====================================*/
+
+.contenido{
+    flex:1;
+    padding:35px;
+    background:#f4f8fc;
+    min-height:100vh;
+}
+
+.contenido h2{
+    color:#0d47a1;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+/*=====================================
+  FORMULARIO DE VENTA
+=====================================*/
+
+.contenido section{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(13,71,161,.12);
+    margin-bottom:35px;
+}
+
+.contenido section label{
+    display:block;
+    margin-bottom:8px;
+    margin-top:18px;
+    font-weight:600;
+    color:#1565c0;
+}
+
+.contenido section select,
+.contenido section input{
+    width:100%;
+    padding:12px 15px;
+    border:2px solid #bbdefb;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+    transition:.3s;
+    background:#f8fbff;
+}
+
+.contenido section select:focus,
+.contenido section input:focus{
+    border-color:#1976d2;
+    box-shadow:0 0 10px rgba(25,118,210,.25);
+    background:#ffffff;
+}
+
+/*=====================================
+  BOTÓN
+=====================================*/
+
+#btnRegistrarVenta{
+    margin-top:25px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#1565c0,#2196f3);
+    color:#ffffff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#btnRegistrarVenta:hover{
+    background:linear-gradient(90deg,#0d47a1,#1976d2);
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(33,150,243,.35);
+}
+
+/*=====================================
+  SEPARADOR
+=====================================*/
+
+hr{
+    border:none;
+    border-top:2px solid #dbe9ff;
+    margin:40px 0;
+}
+
+/*=====================================
+  TABLA
+=====================================*/
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#ffffff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(13,71,161,.12);
+}
+
+thead{
+    background:linear-gradient(90deg,#1565c0,#1e88e5);
+    color:#ffffff;
+}
+
+thead th{
+    padding:16px;
+    text-align:left;
+    font-size:15px;
+}
+
+tbody td{
+    padding:15px;
+    border-bottom:1px solid #e3f2fd;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fbff;
+}
+
+tbody tr:hover{
+    background:#e3f2fd;
+    transition:.3s;
+}
+
+/*=====================================
+  MENSAJE TABLA VACÍA
+=====================================*/
+
+#tablaVentas:empty::before{
+    content:"No hay ventas registradas.";
+    display:block;
+    padding:25px;
+    text-align:center;
+    color:#607d8b;
+    font-weight:bold;
+}
+
+/*=====================================
+  RESPONSIVE
+=====================================*/
+
+@media(max-width:768px){
+
+    .contenido{
+        padding:20px;
+    }
+
+    .contenido h2{
+        font-size:24px;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr{
+        display:block;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tbody tr{
+        margin-bottom:20px;
+        border-radius:12px;
+        background:#ffffff;
+        box-shadow:0 5px 15px rgba(0,0,0,.08);
+        padding:10px;
+    }
+
+    tbody td{
+        display:flex;
+        justify-content:space-between;
+        padding:12px;
+        border:none;
+    }
+
+    tbody td::before{
+        font-weight:bold;
+        color:#1565c0;
+    }
+
+    tbody td:nth-child(1)::before{
+        content:"Fecha";
+    }
+
+    tbody td:nth-child(2)::before{
+        content:"Producto";
+    }
+
+    tbody td:nth-child(3)::before{
+        content:"Cantidad";
+    }
+
+    tbody td:nth-child(4)::before{
+        content:"Total";
+    }
+}
