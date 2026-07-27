@@ -89,7 +89,7 @@ if (btnRegistrarVenta) {
             .insert([
                 {
                     producto_id: producto.id,
-                    nombre_productos: producto.nombre, // <-- CORREGIDO AQUÍ (con 's' al final)
+                    nombre_productos: producto.nombre, // <-- Usar nombre_productos
                     cantidad: cantidadAVender,
                     total: totalVenta
                 }
