@@ -1,0 +1,115 @@
+<!-- CÓDIGO HTML COMPLETO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartInventory</title>
+    <!-- Vincula tu archivo de estilos o colócalos dentro de la etiqueta <style> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>SmartInventory</h2>
+        <a href="#">Inicio</a>
+        <a href="#">Productos</a>
+        <a href="#">Categorías</a>
+        <a href="#">Cerrar sesión</a>
+    </div>
+    <div class="main-content">
+        <h1>Crear Nueva Categoría</h1>
+
+        <!-- Formulario -->
+        <div class="form-card">
+            <label>Nombre de la Categoría:</label>
+            <input type="text" placeholder="Ej. Bebidas, Snacks...">
+            <button class="btn-guardar">Guardar Categoría</button>
+        </div>
+
+        <!-- Encabezado con el Buscador Desplegable en la zona solicitada -->
+        <div class="seccion-header">
+            <h3>Categorías Existentes</h3>
+            
+            <div class="buscador-container">
+                <button type="button" class="btn-desplegar-buscador" onclick="toggleBuscador()">
+                  🔍 Buscar
+                </button>
+                
+                <div id="dropdownBuscador" class="buscador-dropdown">
+                  <input 
+                    type="text" 
+                    id="buscadorProductos" 
+                    placeholder="Buscar por nombre o categoría..." 
+                    onkeyup="filtrarProductos()"
+                  >
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla -->
+        <div class="tabla-container">
+            <table id="tablaProductos">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Coca Cola</td>
+                        <td>Bebidas</td>
+                    </tr>
+                    <tr>
+                        <td>Doritos</td>
+                        <td>Snacks</td>
+                    </tr>
+                    <tr>
+                        <td>Leche</td>
+                        <td>Lácteos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript Funcional -->
+    <script>
+        function toggleBuscador() {
+          let dropdown = document.getElementById('dropdownBuscador');
+          if (dropdown.style.display === 'block') {
+            dropdown.style.display = 'none';
+          } else {
+            dropdown.style.display = 'block';
+            document.getElementById('buscadorProductos').focus();
+          }
+        }
+
+        function filtrarProductos() {
+          let input = document.getElementById('buscadorProductos');
+          let filtro = input.value.toLowerCase();
+          
+          let tabla = document.getElementById('tablaProductos');
+          let filas = tabla.getElementsByTagName('tr');
+
+          for (let i = 1; i < filas.length; i++) {
+            let celdaNombre = filas[i].getElementsByTagName('td')[0];
+            let celdaCategoria = filas[i].getElementsByTagName('td')[1];
+            
+            if (celdaNombre || celdaCategoria) {
+              let textoNombre = celdaNombre.textContent || celdaNombre.innerText;
+              let textoCategoria = celdaCategoria.textContent || celdaCategoria.innerText;
+
+              if (textoNombre.toLowerCase().indexOf(filtro) > -1 || textoCategoria.toLowerCase().indexOf(filtro) > -1) {
+                filas[i].style.display = "";
+              } else {
+                filas[i].style.display = "none";
+              }
+            }
+          }
+        }
+    </script>
+</body>
+</html>
