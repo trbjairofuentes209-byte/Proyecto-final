@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil</title>
   <link rel="stylesheet" href="css/productos.css">
+   <link rel="stylesheet" href="css/perfil.css">
 </head>
 <body>
 
@@ -48,6 +49,18 @@
             src="img/perfil-default.png"
             alt="Foto de perfil"
             class="foto-perfil">
+            <div class="upload-container">
+    <label for="imagenPerfil" class="btn-subir">
+        📷 Cambiar foto de perfil
+    </label>
+
+    <input
+        type="file"
+        id="imagenPerfil"
+        accept="image/*">
+
+    <span id="nombreArchivo">Ningún archivo seleccionado</span>
+</div>
 
         <input
             type="file"

@@ -575,3 +575,33 @@ td button:hover{
 
 
 }
+/*=====================================
+  BOTÓN CREAR PRODUCTO
+=====================================*/
+
+.btn-crear{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 24px;
+    background:linear-gradient(135deg,#1565c0,#1e88e5);
+    color:#ffffff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(21,101,192,.30);
+    transition:all .3s ease;
+    margin:15px 0 25px;
+}
+
+.btn-crear:hover{
+    background:linear-gradient(135deg,#0d47a1,#1976d2);
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(21,101,192,.45);
+}
+
+.btn-crear:active{
+    transform:scale(.97);
+}
