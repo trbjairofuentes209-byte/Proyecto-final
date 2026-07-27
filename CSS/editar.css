@@ -9,8 +9,8 @@
 }
 
 body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    background:linear-gradient(135deg,#e8f2ff,#d7e9ff);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(135deg,#eaf4ff,#d6ebff);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -22,21 +22,21 @@ body{
   CONTENEDOR
 =====================================*/
 
-#seccion-crear-producto{
+#seccion-editar-producto{
     width:100%;
     max-width:650px;
     background:#ffffff;
-    border-radius:18px;
+    border-radius:15px;
     padding:35px;
-    box-shadow:0 15px 35px rgba(13,71,161,.18);
-    border-top:6px solid #1565c0;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    border-top:6px solid #0d6efd;
 }
 
 /*=====================================
   TITULO
 =====================================*/
 
-#seccion-crear-producto h2{
+#seccion-editar-producto h2{
     text-align:center;
     color:#0d47a1;
     margin-bottom:30px;
@@ -47,21 +47,21 @@ body{
   FORMULARIO
 =====================================*/
 
-#form-crear-producto{
+#form-editar-producto{
     display:flex;
     flex-direction:column;
     gap:20px;
 }
 
-#form-crear-producto div{
+#form-editar-producto div{
     display:flex;
     flex-direction:column;
 }
 
 label{
-    margin-bottom:8px;
-    color:#0d47a1;
     font-weight:600;
+    color:#0d47a1;
+    margin-bottom:8px;
 }
 
 /*=====================================
@@ -69,71 +69,60 @@ label{
 =====================================*/
 
 input,
-select{
+textarea{
     width:100%;
-    padding:13px 15px;
-    border:2px solid #bbdefb;
+    padding:12px 15px;
+    border:2px solid #b6d4fe;
     border-radius:10px;
     font-size:16px;
-    background:#f8fbff;
     transition:.3s;
     outline:none;
+    background:#f8fbff;
 }
 
 input:focus,
-select:focus{
-    border-color:#1976d2;
-    box-shadow:0 0 10px rgba(25,118,210,.25);
+textarea:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 10px rgba(13,110,253,.3);
     background:#ffffff;
 }
 
-input::placeholder{
-    color:#90a4ae;
+textarea{
+    resize:vertical;
 }
 
 /*=====================================
   BOTONES
 =====================================*/
 
-#btn-guardar,
-.btn-crear{
-    width:100%;
+button{
     padding:14px;
     border:none;
     border-radius:10px;
     font-size:16px;
-    font-weight:600;
+    font-weight:bold;
     cursor:pointer;
-    text-decoration:none;
-    text-align:center;
     transition:.3s;
 }
 
-/* Botón Guardar */
-
-#btn-guardar{
-    background:linear-gradient(90deg,#1565c0,#1e88e5);
+#btn-actualizar{
+    background:#0d6efd;
     color:#fff;
 }
 
-#btn-guardar:hover{
-    background:linear-gradient(90deg,#0d47a1,#1976d2);
+#btn-actualizar:hover{
+    background:#0b5ed7;
     transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(21,101,192,.35);
+    box-shadow:0 8px 18px rgba(13,110,253,.35);
 }
 
-/* Botón Cancelar */
-
-.btn-crear{
-    background:#eceff1;
-    color:#0d47a1;
-    border:2px solid #90caf9;
-}
-
-.btn-crear:hover{
-    background:#1565c0;
+#btn-cancelar-edicion{
+    background:#6c757d;
     color:#fff;
-    border-color:#1565c0;
+}
+
+#btn-cancelar-edicion:hover{
+    background:#5c636a;
     transform:translateY(-2px);
 }
 
@@ -143,22 +132,15 @@ input::placeholder{
 
 @media(max-width:768px){
 
-    body{
-        padding:20px;
-    }
-
-    #seccion-crear-producto{
+    #seccion-editar-producto{
         padding:25px;
     }
 
-    #seccion-crear-producto h2{
-        font-size:25px;
+    #seccion-editar-producto h2{
+        font-size:24px;
     }
 
-    input,
-    select,
-    #btn-guardar,
-    .btn-crear{
+    button{
         font-size:15px;
     }
 }
@@ -169,19 +151,13 @@ input::placeholder{
         padding:15px;
     }
 
-    #seccion-crear-producto{
+    #seccion-editar-producto{
         padding:20px;
     }
 
-    #seccion-crear-producto h2{
-        font-size:22px;
-    }
-
     input,
-    select,
-    #btn-guardar,
-    .btn-crear{
-        padding:12px;
+    textarea,
+    button{
         font-size:14px;
     }
 }
