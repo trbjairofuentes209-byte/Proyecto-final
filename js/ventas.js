@@ -107,6 +107,8 @@ if (btnRegistrarVenta) {
         }
     });
 }
+// Capturar el elemento donde se mostrará el total acumulado
+const totalVentasAcumulado = document.getElementById("totalVentasAcumulado");
 
 // 6. Cargar y mostrar el historial de ventas
 async function cargarHistorialVentas() {
@@ -124,18 +126,32 @@ async function cargarHistorialVentas() {
 
     tablaVentas.innerHTML = "";
 
+    // Si no hay ventas, mostramos $0.00 en el total acumulado
     if (ventas.length === 0) {
         tablaVentas.innerHTML = `<tr><td colspan="4" style="text-align: center;">No hay ventas registradas aún.</td></tr>`;
+        if (totalVentasAcumulado) {
+            totalVentasAcumulado.textContent = "$0.00";
+        }
         return;
     }
 
+    // 1. Calcular la suma total acumulada
+    const sumaTotal = ventas.reduce((acumulado, v) => acumulado + Number(v.total || 0), 0);
+
+    // 2. Mostrar la suma total formateada
+    if (totalVentasAcumulado) {
+        totalVentasAcumulado.textContent = `$${sumaTotal.toFixed(2)}`;
+    }
+
+    // 3. Renderizar las filas de la tabla
     ventas.forEach(v => {
         const fecha = new Date(v.created_at).toLocaleString();
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
             <td>${fecha}</td>
-            <td>${v.nombre_productos || 'Producto eliminado'}</td> <td>${v.cantidad}</td>
+            <td>${v.nombre_productos || 'Producto eliminado'}</td>
+            <td>${v.cantidad}</td>
             <td>$${Number(v.total || 0).toFixed(2)}</td>
         `;
 
