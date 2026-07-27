@@ -1,31 +1,60 @@
 import { supabase } from "./config.js";
 
-// 1. Verificar sesión activa
+// Verificar sesión
 const { data: sessionData } = await supabase.auth.getSession();
 if (!sessionData.session) {
     window.location.href = "login.html";
 }
 
-// 2. Elementos del DOM
+// Elementos del DOM
+const selectCategoriaFiltro = document.getElementById("selectCategoriaFiltro");
 const selectProducto = document.getElementById("selectProducto");
 const cantidadVentaInput = document.getElementById("cantidadVenta");
 const btnRegistrarVenta = document.getElementById("btnRegistrarVenta");
 const tablaVentas = document.getElementById("tablaVentas");
+const totalVentasAcumulado = document.getElementById("totalVentasAcumulado");
 
 let listaProductos = [];
+let listaCategorias = [];
 
-// 3. Inicializar la página al cargar el DOM
-document.addEventListener("DOMContentLoaded", () => {
-    cargarSelectProductos();
-    cargarHistorialVentas();
+// Inicializar datos
+document.addEventListener("DOMContentLoaded", async () => {
+    await cargarCategoriasFiltro();
+    await cargarSelectProductos();
+    await cargarHistorialVentas();
 });
 
-// 4. Cargar productos con stock disponible en el select
+// 1. Cargar la lista de Categorías en el selector de filtro
+async function cargarCategoriasFiltro() {
+    if (!selectCategoriaFiltro) return;
+
+    const { data, error } = await supabase
+        .from("Categorias")
+        .select("*")
+        .order("nombre", { ascending: true });
+
+    if (error) {
+        console.error("Error al cargar categorías:", error.message);
+        return;
+    }
+
+    listaCategorias = data;
+    selectCategoriaFiltro.innerHTML = '<option value="">-- Todas las categorías --</option>';
+
+    data.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat.id;
+        option.textContent = cat.nombre;
+        selectCategoriaFiltro.appendChild(option);
+    });
+}
+
+// 2. Cargar todos los productos disponibles (con stock > 0)
 async function cargarSelectProductos() {
     const { data, error } = await supabase
         .from("productos")
-        .select("*")
-        .gt("cantidad", 0) // Solo productos con stock mayor a 0
+        .select("*, Categorias(*)") // Incluir relación con la tabla Categorias
+        .gt("cantidad", 0)
         .order("nombre", { ascending: true });
 
     if (error) {
@@ -34,19 +63,50 @@ async function cargarSelectProductos() {
     }
 
     listaProductos = data;
-
-    if (selectProducto) {
-        selectProducto.innerHTML = '<option value="">-- Selecciona un producto --</option>';
-
-        data.forEach(p => {
-            const option = document.createElement("option");
-            option.value = p.id;
-            option.textContent = `${p.nombre} (Stock: ${p.cantidad} | Precio: $${p.precio})`;
-            selectProducto.appendChild(option);
-        });
-    }
+    poblarSelectProductos(listaProductos);
 }
-// 5. Registrar la venta y actualizar el stock
+
+// 3. Función auxiliar para pintar las opciones en el <select> de productos
+function poblarSelectProductos(productos) {
+    if (!selectProducto) return;
+
+    selectProducto.innerHTML = '<option value="">-- Selecciona un producto --</option>';
+
+    if (productos.length === 0) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "No hay productos disponibles";
+        selectProducto.appendChild(option);
+        return;
+    }
+
+    productos.forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.id;
+        option.textContent = `${p.nombre} (Stock: ${p.cantidad} | Precio: $${p.precio})`;
+        selectProducto.appendChild(option);
+    });
+}
+
+// 4. Filtrar productos cuando el usuario cambia la categoría seleccionada
+if (selectCategoriaFiltro) {
+    selectCategoriaFiltro.addEventListener("change", (e) => {
+        const categoriaIdSeleccionada = e.target.value;
+
+        if (!categoriaIdSeleccionada) {
+            // Si elige "Todas las categorías", se muestran todos
+            poblarSelectProductos(listaProductos);
+        } else {
+            // Filtrar según el ID de categoría (Categorias_id)
+            const productosFiltrados = listaProductos.filter(
+                p => p.Categorias_id == categoriaIdSeleccionada
+            );
+            poblarSelectProductos(productosFiltrados);
+        }
+    });
+}
+
+// 5. Registrar Venta
 if (btnRegistrarVenta) {
     btnRegistrarVenta.addEventListener("click", async () => {
         const productoId = selectProducto.value;
@@ -72,7 +132,7 @@ if (btnRegistrarVenta) {
         const nuevoStock = producto.cantidad - cantidadAVender;
         const totalVenta = producto.precio * cantidadAVender;
 
-        // A) Descontar el stock en la tabla 'productos'
+        // Descontar el stock en la tabla 'productos'
         const { error: errorStock } = await supabase
             .from("productos")
             .update({ cantidad: nuevoStock })
@@ -83,13 +143,13 @@ if (btnRegistrarVenta) {
             return;
         }
 
-        // B) Registrar el historial en la tabla 'ventas'
+        // Registrar la transacción en 'ventas'
         const { error: errorVenta } = await supabase
             .from("ventas")
             .insert([
                 {
                     producto_id: producto.id,
-                    nombre_productos: producto.nombre, // <-- Usar nombre_productos
+                    nombre_productos: producto.nombre,
                     cantidad: cantidadAVender,
                     total: totalVenta
                 }
@@ -100,17 +160,16 @@ if (btnRegistrarVenta) {
         } else {
             alert("¡Venta realizada con éxito!");
             cantidadVentaInput.value = 1;
-            
-            // Refrescar selector y tabla
+
+            // Mantener o resetear el filtro tras la venta
+            if (selectCategoriaFiltro) selectCategoriaFiltro.value = "";
             await cargarSelectProductos();
             await cargarHistorialVentas();
         }
     });
 }
-// Capturar el elemento donde se mostrará el total acumulado
-const totalVentasAcumulado = document.getElementById("totalVentasAcumulado");
 
-// 6. Cargar y mostrar el historial de ventas
+// 6. Cargar Historial de Ventas
 async function cargarHistorialVentas() {
     if (!tablaVentas) return;
 
@@ -126,24 +185,17 @@ async function cargarHistorialVentas() {
 
     tablaVentas.innerHTML = "";
 
-    // Si no hay ventas, mostramos $0.00 en el total acumulado
     if (ventas.length === 0) {
         tablaVentas.innerHTML = `<tr><td colspan="4" style="text-align: center;">No hay ventas registradas aún.</td></tr>`;
-        if (totalVentasAcumulado) {
-            totalVentasAcumulado.textContent = "$0.00";
-        }
+        if (totalVentasAcumulado) totalVentasAcumulado.textContent = "$0.00";
         return;
     }
 
-    // 1. Calcular la suma total acumulada
-    const sumaTotal = ventas.reduce((acumulado, v) => acumulado + Number(v.total || 0), 0);
-
-    // 2. Mostrar la suma total formateada
+    const sumaTotal = ventas.reduce((acum, v) => acum + Number(v.total || 0), 0);
     if (totalVentasAcumulado) {
         totalVentasAcumulado.textContent = `$${sumaTotal.toFixed(2)}`;
     }
 
-    // 3. Renderizar las filas de la tabla
     ventas.forEach(v => {
         const fecha = new Date(v.created_at).toLocaleString();
         const fila = document.createElement("tr");
