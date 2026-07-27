@@ -29,3 +29,47 @@ btnCerrarSesion.addEventListener("click", async (event) => {
     window.location.href = "login.html";
 
 });
+
+
+const { data: productos, error: errorProductos } = await supabase
+    .from("productos")
+    .select("*");
+
+if (errorProductos) {
+
+    console.error(errorProductos);
+
+} else {
+
+    document.getElementById("totalProductos").textContent =
+        productos.length;
+
+}
+
+
+let stock = 0;
+
+productos.forEach(producto => {
+
+    stock += producto.cantidad;
+
+});
+
+document.getElementById("stockTotal").textContent = stock;
+
+
+
+const { data: categorias, error: errorCategorias } = await supabase
+    .from("Categorias")
+    .select("*");
+
+if (errorCategorias) {
+
+    console.error(errorCategorias);
+
+} else {
+
+    document.getElementById("totalCategorias").textContent =
+        categorias.length;
+
+}
