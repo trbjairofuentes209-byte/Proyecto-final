@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard | SmartInventory</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SmartInventory</title>
 
-<link rel="stylesheet" href="css/dashboard.css">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" href="icons/favicon.png">
-<meta name="theme-color" content="#1e63c5">
-
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <meta name="theme-color" content="#1e63c5">
 </head>
 
 <body>
-<div class="dashboard">
+  <div class="dashboard">
     
     <button id="btn-hamburguesa" class="btn-hamburguesa" aria-label="Abrir menú">☰</button>
     
@@ -28,82 +27,60 @@
         <a href="categorias.html">📋 Categorías</a>
         <a href="ventas.html">📋 Ventas</a>
         <a href="perfil.html">👤 Mi Perfil</a>
-        <a href="#" id="cerrarSesion">
-    🚪 Cerrar sesión
-</a>
+        <a href="login.html" id="cerrarSesion">🚪 Cerrar sesión</a>
       </nav>
     </aside>
 
-
     <main class="contenido">
 
+      <header class="header-dashboard">
         <h1>Panel Principal</h1>
-    
-        <p id="usuarioActivo"></p>
 
-        <div class="cards">
+        <a href="perfil.html" class="user-bubble" title="Ir a Mi Perfil">
+          <img id="userFoto" src="https://ui-avatars.com/api/?name=Usuario&background=1e63c5&color=fff&rounded=true" alt="Foto de perfil" class="user-avatar-bubble">
+        </a>
+      </header>
 
-    <div class="card">
+      <p id="usuarioActivo"></p>
 
-        <h2 id="totalProductos">0</h2>
+      <div class="cards">
+        <div class="card">
+          <h2 id="totalProductos">0</h2>
+          <p>Productos</p>
+        </div>
 
-        <p>Productos</p>
+        <div class="card">
+          <h2 id="totalCategorias">0</h2>
+          <p>Categorías</p>
+        </div>
 
-    </div>
+        <div class="card">
+          <h2 id="stockTotal">0</h2>
+          <p>Existencias</p>
+        </div>
 
-    <div class="card">
+        <div class="card">
+          <h2 id="stockBajo">0</h2>
+          <p>Stock Bajo</p>
+        </div>
 
-    <h2 id="totalCategorias">0</h2>
+        <div class="card">
+          <h2 id="valorInventario">$0.00</h2>
+          <p>Valor del Inventario</p>
+        </div>
+      </div>
 
-    <p>Categorías</p>
-
-</div>
-
-    <div class="card">
-
-        <h2 id="stockTotal">0</h2>
-
-        <p>Existencias</p>
-
-    </div>
-
-    <div class="card">
-
-    <h2 id="stockBajo">0</h2>
-
-    <p>Stock Bajo</p>
-
-</div>
-
-<div class="card">
-
-    <h2 id="valorInventario">$0.00</h2>
-
-    <p>Valor del Inventario</p>
-
-</div>
-
-    </div>
-
-    <section class="panel">
-
-    <h2>⚠ Productos con poco stock</h2>
-
-    <ul id="listaStockBajo">
-
-    </ul>
-
-</section>
+      <section class="panel">
+        <h2>⚠ Productos con poco stock</h2>
+        <ul id="listaStockBajo"></ul>
+      </section>
 
     </main>
 
-
-
+  </div>
 
   <script src="js/menu.js"></script>
-<script type="module" src="js/dashboard.js"></script>
-<script src="js/pwa.js"></script>
-
+  <script type="module" src="js/dashboard.js"></script>
+  <script src="js/pwa.js"></script>
 </body>
-
 </html>

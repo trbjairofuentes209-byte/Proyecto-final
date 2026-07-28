@@ -303,3 +303,34 @@ body {
         align-self: flex-end;
     }
 }
+/* Contenedor principal alineado */
+.header-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Burbuja del usuario */
+.user-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-bubble:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen circular de perfil */
+.user-avatar-bubble {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1e63c5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
