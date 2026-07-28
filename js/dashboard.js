@@ -10,8 +10,18 @@ if (!data.session) {
 
 const usuario = data.session.user;
 
-document.getElementById("usuarioActivo").textContent =
-    `Bienvenido, ${usuario.email}`;
+const { data: perfilUsuario, error: errorPerfil } = await supabase
+    .from("perfiles")
+    .select("nombre, foto")
+    .eq("id", usuario.id)
+    .single();
+
+if (!errorPerfil) {
+
+    document.getElementById("usuarioActivo").textContent =
+        `Bienvenido, ${perfilUsuario.nombre}`;
+
+}
 
     const btnCerrarSesion = document.getElementById("cerrarSesion");
 
