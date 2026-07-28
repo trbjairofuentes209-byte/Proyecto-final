@@ -20,6 +20,7 @@ btnCerrarSesion.addEventListener("click", async (event) => {
     event.preventDefault();
 
     const { error } = await supabase.auth.signOut();
+window.location.href = "login.html";
 
     if (error) {
         console.error(error);
