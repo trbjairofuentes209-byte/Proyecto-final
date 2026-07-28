@@ -196,3 +196,85 @@ textarea {
         padding: 25px;
     }
 }
+/*=====================================
+   Navegación Móvil y Hamburguesa
+=====================================*/
+
+/* Ocultar botones especiales en computadoras */
+.btn-hamburguesa,
+.btn-cerrar-menu,
+.overlay-menu {
+  display: none;
+}
+
+/* 📱 ESTILOS PARA TELÉFONOS (Menos de 768px) */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  /* Botón Flotante para abrir el menú */
+  .btn-hamburguesa {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* El sidebar se oculta fuera de la pantalla hacia la izquierda */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Esconde el menú */
+    width: 260px;
+    height: 100vh;
+    z-index: 1001;
+    transition: left 0.3s ease-in-out; /* Animación fluida */
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+  }
+
+  /* Clase que activa JavaScript para MOSTRAR el menú */
+  .sidebar.activo {
+    left: 0;
+  }
+
+  /* Botón 'X' para cerrar dentro del menú */
+  .btn-cerrar-menu {
+    display: block;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  /* Fondo semitransparente oscuro al abrir el menú */
+  .overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .overlay-menu.activo {
+    display: block;
+  }
+
+  .contenido {
+    padding: 70px 15px 20px 15px; /* Espacio superior para no tapar con el botón */
+  }
+}

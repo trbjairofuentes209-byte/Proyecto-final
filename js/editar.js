@@ -42,7 +42,6 @@ async function cargarDatosProducto(id) {
     if (editNombre) editNombre.value = producto.nombre || "";
     if (editPrecio) editPrecio.value = producto.precio || 0;
     if (editStock) editStock.value = producto.cantidad || 0;
-    if (editDescripcion) editDescripcion.value = producto.descripcion || "";
   }
 }
 

@@ -1,607 +1,348 @@
 /* =====================================
    SMARTINVENTORY - PRODUCTOS CSS
-   Sistema Administrativo
+   Sistema Administrativo Responsivo
 ===================================== */
 
-
 /* RESET GENERAL */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-body{
-
-    background:#f4f7fb;
-    color:#333;
-
+body {
+    background: #f4f7fb;
+    color: #333;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* Evita que la pantalla se desborde a los lados */
 }
-
 
 /* =====================================
    CONTENEDOR PRINCIPAL
 ===================================== */
-
-
-.dashboard{
-
-    display:flex;
-    min-height:100vh;
-
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
-
-
 
 /* =====================================
-   MENU LATERAL
+   MENU LATERAL (ESCRITORIO)
 ===================================== */
-
-
-.sidebar{
-
-    width:260px;
-    background:#0f172a;
-    color:white;
-
-    padding:25px 20px;
-
-    display:flex;
-    flex-direction:column;
-
-    position:fixed;
-
-    height:100vh;
-
-    box-shadow:4px 0 15px rgba(0,0,0,.15);
-
+.sidebar {
+    width: 260px;
+    background: #0f172a;
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, .15);
+    z-index: 100;
 }
 
-
-
-/* LOGO */
-
-
-.logo{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-bottom:40px;
-
+.sidebar h2,
+.logo h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-
-.logo i{
-
-    font-size:32px;
-    color:#3b82f6;
-
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-
-.logo h2{
-
-    font-size:22px;
-    font-weight:700;
-
+.sidebar a {
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 12px 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: .3s;
+    font-size: 16px;
 }
-
-
-
-/* LINKS */
-
-
-.sidebar a{
-
-    text-decoration:none;
-
-    color:#cbd5e1;
-
-    padding:15px;
-
-    margin-bottom:10px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    transition:.3s;
-
-    font-size:16px;
-
-}
-
-
-
-.sidebar a i{
-
-    width:20px;
-
-}
-
-
-/* HOVER */
-
 
 .sidebar a:hover,
-.sidebar .activo{
-
-    background:#2563eb;
-
-    color:white;
-
-    transform:translateX(5px);
-
+.sidebar .activo {
+    background: #2563eb;
+    color: white;
+    transform: translateX(5px);
 }
-
-
 
 /* =====================================
    CONTENIDO PRINCIPAL
 ===================================== */
-
-
-.contenido{
-
-    margin-left:260px;
-
-    padding:40px;
-
-    width:calc(100% - 260px);
-
+.contenido {
+    margin-left: 260px;
+    padding: 40px;
+    width: calc(100% - 260px);
 }
 
+/* ENCABEZADO DE PÁGINA */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
 
+.encabezado h1, 
+.contenido h2 {
+    font-size: 28px;
+    color: #0f172a;
+}
+
+/* BOTÓN CREAR PRODUCTO */
+.btn-crear,
+.nuevo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #1565c0, #1e88e5);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(21, 101, 192, .30);
+    transition: all .3s ease;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-crear:hover,
+.nuevo:hover {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(21, 101, 192, .45);
+}
 
 /* =====================================
-   ENCABEZADO
+   TABLA DE PRODUCTOS (ESCRITORIO)
 ===================================== */
-
-
-.encabezado{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:30px;
-
+.tabla {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 }
 
-
-
-.encabezado h1{
-
-    font-size:32px;
-
-    color:#0f172a;
-
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-
-
-/* BOTON NUEVO */
-
-
-.nuevo{
-
-    background:#2563eb;
-
-    color:white;
-
-    border:none;
-
-    padding:13px 22px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    display:flex;
-
-    gap:10px;
-
-    align-items:center;
-
-    transition:.3s;
-
+thead {
+    background: #2563eb;
+    color: white;
 }
 
-
-.nuevo:hover{
-
-    background:#1d4ed8;
-
-    transform:translateY(-3px);
-
-    box-shadow:0 8px 20px rgba(37,99,235,.3);
-
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 15px;
 }
 
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+}
 
+tbody tr:hover {
+    background: #eff6ff;
+}
+
+/* BOTONES DENTRO DE TABLA */
+td button,
+.btn-editar,
+.btn-eliminar {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-editar {
+    background: #22c55e;
+}
+
+.btn-eliminar {
+    background: #ef4444;
+}
+
+td button:hover {
+    opacity: .85;
+    transform: translateY(-2px);
+}
 
 /* =====================================
-   FORMULARIO
+   REGULACIÓN MÓVIL (MENÚ HAMBURGUESA Y CARDS)
 ===================================== */
-
-
-#formProducto{
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-    margin-bottom:30px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
+.btn-hamburguesa,
+.btn-cerrar-menu,
+.overlay-menu {
+    display: none;
 }
 
-
-
-/* INPUTS */
-
-
-#formProducto input{
-
-    padding:14px;
-
-    border:1px solid #dbeafe;
-
-    border-radius:10px;
-
-    outline:none;
-
-    font-size:15px;
-
-    transition:.3s;
-
-}
-
-
-
-#formProducto input:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 8px rgba(37,99,235,.2);
-
-}
-
-
-
-/* BOTON GUARDAR */
-
-
-#formProducto button{
-
-    background:#2563eb;
-
-    color:white;
-
-    border:none;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.3s;
-
-}
-
-
-
-#formProducto button:hover{
-
-    background:#1e40af;
-
-    transform:scale(1.03);
-
-}
-
-
-
-/* =====================================
-   TABLA
-===================================== */
-
-
-.tabla{
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    overflow-x:auto;
-
-}
-
-
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-}
-
-
-
-thead{
-
-    background:#2563eb;
-
-    color:white;
-
-}
-
-
-
-th{
-
-    padding:15px;
-
-    text-align:left;
-
-    font-size:15px;
-
-}
-
-
-
-td{
-
-    padding:15px;
-
-    border-bottom:1px solid #e5e7eb;
-
-}
-
-
-
-tbody tr{
-
-    transition:.3s;
-
-}
-
-
-
-tbody tr:hover{
-
-    background:#eff6ff;
-
-    transform:scale(1.01);
-
-}
-
-
-
-/* =====================================
-   BOTONES DENTRO DE TABLA
-===================================== */
-
-
-td button{
-
-    border:none;
-
-    padding:8px 12px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    margin-right:5px;
-
-    color:white;
-
-}
-
-
-
-.btn-editar{
-
-    background:#22c55e;
-
-}
-
-
-
-.btn-eliminar{
-
-    background:#ef4444;
-
-}
-
-
-
-td button:hover{
-
-    opacity:.8;
-
-    transform:translateY(-2px);
-
-}
-
-
-
-/* =====================================
-   RESPONSIVE TABLET
-===================================== */
-
-
-@media(max-width:1024px){
-
-
-    .sidebar{
-
-        width:220px;
-
+/* DISPOSITIVOS MÓVILES */
+@media(max-width: 768px) {
+    
+    /* 1. Botón Hamburguesa Fijo */
+    .btn-hamburguesa {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1005;
+        background-color: #0f172a;
+        color: #ffffff;
+        border: none;
+        font-size: 22px;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-
-    .contenido{
-
-        margin-left:220px;
-
-        width:calc(100% - 220px);
-
-        padding:25px;
-
+    /* 2. Ocultar Menú Lateral fuera de pantalla */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -280px !important;
+        width: 260px !important;
+        height: 100vh !important;
+        z-index: 1010 !important;
+        transition: left 0.3s ease !important;
+        background-color: #0f172a !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
     }
 
-
-    #formProducto{
-
-        grid-template-columns:repeat(2,1fr);
-
+    .sidebar.activo {
+        left: 0 !important;
     }
 
-}
-
-
-
-/* =====================================
-   RESPONSIVE MOVIL
-===================================== */
-
-
-@media(max-width:767px){
-
-
-    .dashboard{
-
-        display:block;
-
+    .btn-cerrar-menu {
+        display: block !important;
+        align-self: flex-end;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 30px;
+        cursor: pointer;
+        margin-bottom: 10px;
     }
 
-
-    .sidebar{
-
-        position:relative;
-
-        width:100%;
-
-        height:auto;
-
+    .overlay-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
     }
 
-
-    .logo{
-
-        justify-content:center;
-
+    .overlay-menu.activo {
+        display: block !important;
     }
 
-
-    .contenido{
-
-        margin-left:0;
-
-        width:100%;
-
-        padding:20px;
-
+    /* 3. Reajuste del Contenido Principal */
+    .contenido {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 70px 15px 30px 15px !important;
     }
 
-
-
-    .encabezado{
-
-        flex-direction:column;
-
-        gap:20px;
-
-        align-items:flex-start;
-
+    .contenido h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
     }
 
-
-    .encabezado h1{
-
-        font-size:25px;
-
+    .btn-crear {
+        width: 100%;
+        margin-bottom: 20px;
     }
 
-
-    #formProducto{
-
-        grid-template-columns:1fr;
-
+    .tabla {
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
     }
 
-
-    .tabla{
-
-        padding:15px;
-
+    /* 4. CONVERSIÓN DE LA TABLA A TARJETAS VERTICALES (A LO LARGO) */
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
     }
 
-
-    table{
-
-        min-width:700px;
-
+    /* Ocultar el encabezado azul de la tabla */
+    thead {
+        display: none;
     }
 
+    /* Cada fila ahora es una tarjeta individual vertical */
+    tbody tr {
+        background: #ffffff;
+        margin-bottom: 15px;
+        border-radius: 14px;
+        padding: 15px 18px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+    }
 
-}
-/*=====================================
-  BOTÓN CREAR PRODUCTO
-=====================================*/
+    /* Ajuste de cada celda dentro de la tarjeta */
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px dashed #f1f5f9;
+        font-size: 15px;
+    }
 
-.btn-crear{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:12px 24px;
-    background:linear-gradient(135deg,#1565c0,#1e88e5);
-    color:#ffffff;
-    text-decoration:none;
-    font-size:16px;
-    font-weight:600;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(21,101,192,.30);
-    transition:all .3s ease;
-    margin:15px 0 25px;
-}
+    td:last-child {
+        border-bottom: none;
+        margin-top: 10px;
+        padding-top: 12px;
+        justify-content: flex-end;
+        gap: 10px;
+    }
 
-.btn-crear:hover{
-    background:linear-gradient(135deg,#0d47a1,#1976d2);
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(21,101,192,.45);
-}
+    /* Agrega nombres descriptivos al lado izquierdo en móviles */
+    td:nth-of-type(1)::before { content: "Producto:"; font-weight: bold; color: #64748b; }
+    td:nth-of-type(2)::before { content: "Categoría:"; font-weight: bold; color: #64748b; }
+    td:nth-of-type(3)::before { content: "Stock:"; font-weight: bold; color: #64748b; }
+    td:nth-of-type(4)::before { content: "Precio:"; font-weight: bold; color: #64748b; }
 
-.btn-crear:active{
-    transform:scale(.97);
+    /* Botones de acción en móvil */
+    td button, 
+    .btn-editar, 
+    .btn-eliminar {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+    }
 }
