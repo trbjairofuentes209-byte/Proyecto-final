@@ -1,0 +1,22 @@
+{
+  "name": "SmartInventory",
+  "short_name": "SmartInventory",
+  "description": "Sistema inteligente de gestión de inventarios",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1e63c5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
