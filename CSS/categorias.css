@@ -249,3 +249,75 @@ tbody tr:hover{
     }
 
 }
+/*==============================
+    BOTONES DE ACCIONES
+===============================*/
+
+.btn-editar,
+.btn-eliminar{
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:all .3s ease;
+    margin-right:8px;
+}
+
+/* Botón Editar */
+
+.btn-editar{
+    background:#1976d2;
+    color:#fff;
+    box-shadow:0 3px 8px rgba(25,118,210,.25);
+}
+
+.btn-editar:hover{
+    background:#0d47a1;
+    transform:translateY(-2px);
+    box-shadow:0 6px 12px rgba(13,71,161,.35);
+}
+
+/* Botón Eliminar */
+
+.btn-eliminar{
+    background:#e53935;
+    color:#fff;
+    box-shadow:0 3px 8px rgba(229,57,53,.25);
+}
+
+.btn-eliminar:hover{
+    background:#c62828;
+    transform:translateY(-2px);
+    box-shadow:0 6px 12px rgba(198,40,40,.35);
+}
+
+/*=====================================
+  BOTÓN CANCELAR EDICIÓN
+=====================================*/
+
+#btn-cancelar-edicion{
+    display:none;
+    background:linear-gradient(135deg,#f03434,#fd4a32);
+    color:#fff;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:all .3s ease;
+    box-shadow:0 5px 15px rgba(236, 18, 18, 0.3);
+    margin-left:10px;
+}
+
+#btn-cancelar-edicion:hover{
+    background:linear-gradient(135deg,#f13434,#fa2626);
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(231, 26, 26, 0.4);
+}
+
+#btn-cancelar-edicion:active{
+    transform:scale(.98);
+}
