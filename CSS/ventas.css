@@ -1,204 +1,368 @@
-/*=====================================
-  CONTENIDO PRINCIPAL
-=====================================*/
-
-.contenido{
-    flex:1;
-    padding:35px;
-    background:#f4f8fc;
-    min-height:100vh;
+/* =====================================
+   RESET Y CONFIGURACIÓN BASE
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.contenido h2{
-    color:#0d47a1;
-    margin-bottom:20px;
-    font-size:28px;
+body {
+    background: #f4f8fc;
+    color: #333;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* Evita desbordamiento horizontal */
 }
 
-/*=====================================
-  FORMULARIO DE VENTA
-=====================================*/
-
-.contenido section{
-    background:#ffffff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(13,71,161,.12);
-    margin-bottom:35px;
+/* =====================================
+   CONTENEDOR PRINCIPAL
+===================================== */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
-.contenido section label{
-    display:block;
-    margin-bottom:8px;
-    margin-top:18px;
-    font-weight:600;
-    color:#1565c0;
+/* =====================================
+   SIDEBAR (ESCRITORIO)
+===================================== */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 25px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.activo {
+    background: #2563eb;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
+.contenido {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 35px;
+    background: #f4f8fc;
+    min-height: 100vh;
+}
+
+.contenido h2 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.contenido h3 {
+    color: #0d47a1;
+    margin: 30px 0 20px;
+}
+
+/* =====================================
+   FORMULARIO DE VENTA
+===================================== */
+.contenido section {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(13, 71, 161, 0.12);
+    margin-bottom: 35px;
+}
+
+.contenido section label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    font-weight: 600;
+    color: #1565c0;
+}
+
+.contenido section label:first-of-type {
+    margin-top: 0;
 }
 
 .contenido section select,
-.contenido section input{
-    width:100%;
-    padding:12px 15px;
-    border:2px solid #bbdefb;
-    border-radius:10px;
-    outline:none;
-    font-size:16px;
-    transition:.3s;
-    background:#f8fbff;
+.contenido section input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #bbdefb;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+    background: #f8fbff;
 }
 
 .contenido section select:focus,
-.contenido section input:focus{
-    border-color:#1976d2;
-    box-shadow:0 0 10px rgba(25,118,210,.25);
-    background:#ffffff;
+.contenido section input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 10px rgba(25, 118, 210, 0.25);
+    background: #ffffff;
 }
 
-/*=====================================
-  BOTÓN
-=====================================*/
-
-#btnRegistrarVenta{
-    margin-top:25px;
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    background:linear-gradient(90deg,#1565c0,#2196f3);
-    color:#ffffff;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+/* BOTÓN DE REGISTRO */
+#btnRegistrarVenta,
+.btn-guardar {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #1565c0, #2196f3);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-#btnRegistrarVenta:hover{
-    background:linear-gradient(90deg,#0d47a1,#1976d2);
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(33,150,243,.35);
+#btnRegistrarVenta:hover,
+.btn-guardar:hover {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(33, 150, 243, 0.35);
 }
 
-/*=====================================
-  SEPARADOR
-=====================================*/
-
-hr{
-    border:none;
-    border-top:2px solid #dbe9ff;
-    margin:40px 0;
+/* SEPARADOR */
+hr {
+    border: none;
+    border-top: 2px solid #dbe9ff;
+    margin: 40px 0;
 }
 
-/*=====================================
-  TABLA
-=====================================*/
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#ffffff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(13,71,161,.12);
+/* =====================================
+   TABLA DE VENTAS (ESCRITORIO)
+===================================== */
+.tabla {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(13, 71, 161, 0.12);
+    overflow: hidden;
 }
 
-thead{
-    background:linear-gradient(90deg,#1565c0,#1e88e5);
-    color:#ffffff;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-thead th{
-    padding:16px;
-    text-align:left;
-    font-size:15px;
+thead {
+    background: linear-gradient(90deg, #1565c0, #1e88e5);
+    color: #ffffff;
 }
 
-tbody td{
-    padding:15px;
-    border-bottom:1px solid #e3f2fd;
+thead th {
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
 }
 
-tbody tr:nth-child(even){
-    background:#f8fbff;
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e3f2fd;
 }
 
-tbody tr:hover{
-    background:#e3f2fd;
-    transition:.3s;
+tbody tr:nth-child(even) {
+    background: #f8fbff;
 }
 
-/*=====================================
-  MENSAJE TABLA VACÍA
-=====================================*/
-
-#tablaVentas:empty::before{
-    content:"No hay ventas registradas.";
-    display:block;
-    padding:25px;
-    text-align:center;
-    color:#607d8b;
-    font-weight:bold;
+tbody tr:hover {
+    background: #e3f2fd;
+    transition: 0.3s;
 }
 
-/*=====================================
-  RESPONSIVE
-=====================================*/
+/* MENSAJE CUANDO LA TABLA ESTÁ VACÍA */
+#tablaVentas:empty::before {
+    content: "No hay ventas registradas.";
+    display: block;
+    padding: 25px;
+    text-align: center;
+    color: #607d8b;
+    font-weight: bold;
+}
 
-@media(max-width:768px){
+/* =====================================
+   REGULACIÓN MÓVIL (MENÚ HAMBURGUESA Y CARDS)
+===================================== */
+.btn-hamburguesa,
+.btn-cerrar-menu,
+.overlay-menu {
+    display: none;
+}
 
-    .contenido{
-        padding:20px;
+@media (max-width: 768px) {
+    
+    /* 1. Botón Hamburguesa Fijo arriba */
+    .btn-hamburguesa {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1005;
+        background-color: #0f172a;
+        color: #ffffff;
+        border: none;
+        font-size: 22px;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .contenido h2{
-        font-size:24px;
+    /* 2. Menú Lateral Desplegable */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -280px !important;
+        width: 260px !important;
+        height: 100vh !important;
+        z-index: 1010 !important;
+        transition: left 0.3s ease !important;
+        background-color: #0f172a !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        margin: 0 !important;
     }
 
+    .sidebar.activo {
+        left: 0 !important;
+    }
+
+    .btn-cerrar-menu {
+        display: block !important;
+        align-self: flex-end;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 30px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .overlay-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .overlay-menu.activo {
+        display: block !important;
+    }
+
+    /* 3. Reajuste de la sección principal */
+    .contenido {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 70px 15px 25px 15px !important;
+    }
+
+    .contenido h2 {
+        font-size: 24px;
+    }
+
+    .contenido section {
+        padding: 20px;
+    }
+
+    .tabla {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* 4. Conversión de Tabla a Tarjetas a lo largo (Vertical) */
     table,
     thead,
     tbody,
     th,
     td,
-    tr{
-        display:block;
+    tr {
+        display: block;
+        width: 100%;
     }
 
-    thead{
-        display:none;
+    thead {
+        display: none;
     }
 
-    tbody tr{
-        margin-bottom:20px;
-        border-radius:12px;
-        background:#ffffff;
-        box-shadow:0 5px 15px rgba(0,0,0,.08);
-        padding:10px;
+    tbody tr {
+        margin-bottom: 15px;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        padding: 15px;
+        border: 1px solid #e3f2fd;
     }
 
-    tbody td{
-        display:flex;
-        justify-content:space-between;
-        padding:12px;
-        border:none;
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border: none;
+        border-bottom: 1px dashed #e3f2fd;
+        font-size: 15px;
     }
 
-    tbody td::before{
-        font-weight:bold;
-        color:#1565c0;
+    tbody td:last-child {
+        border-bottom: none;
     }
 
-    tbody td:nth-child(1)::before{
-        content:"Fecha";
+    tbody td::before {
+        font-weight: bold;
+        color: #1565c0;
     }
 
-    tbody td:nth-child(2)::before{
-        content:"Producto";
-    }
-
-    tbody td:nth-child(3)::before{
-        content:"Cantidad";
-    }
-
-    tbody td:nth-child(4)::before{
-        content:"Total";
-    }
+    /* Etiquetas dinámicas */
+    tbody td:nth-child(1)::before { content: "Fecha:"; }
+    tbody td:nth-child(2)::before { content: "Producto:"; }
+    tbody td:nth-child(3)::before { content: "Cantidad:"; }
+    tbody td:nth-child(4)::before { content: "Total:"; }
 }
