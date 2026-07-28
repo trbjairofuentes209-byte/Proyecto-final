@@ -2,250 +2,360 @@
     RESET
 =====================================*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    background:#eef4fb;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef4fb;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /*=====================================
     DASHBOARD
 =====================================*/
 
-.dashboard{
-    display:flex;
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
 /*=====================================
-    SIDEBAR
+    SIDEBAR (ESCRITORIO)
 =====================================*/
 
-.sidebar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:260px;
-    height:100vh;
-    background:#0f172a;
-    color:#fff;
-    padding:25px 20px;
-    box-shadow:4px 0 15px rgba(0,0,0,.15);
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #0f172a;
+    color: #fff;
+    padding: 25px 20px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, .15);
+    z-index: 100;
 }
 
-.sidebar h2{
-    text-align:center;
-    margin-bottom:35px;
-    font-size:30px;
-    color:#fff;
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 26px;
+    color: #fff;
 }
 
 /*=====================================
     MENÚ
 =====================================*/
 
-.sidebar nav{
-    display:flex;
-    flex-direction:column;
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar nav a{
-    text-decoration:none;
-    color:#cbd5e1;
-    padding:15px;
-    margin-bottom:12px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:.3s;
-    font-size:16px;
-    font-weight:500;
+.sidebar nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: .3s;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.sidebar nav a:hover{
-    background:#2563eb;
-    color:#fff;
-    transform:translateX(5px);
-}
-
-.sidebar nav a.activo{
-    background:#2563eb;
-    color:#fff;
+.sidebar nav a:hover,
+.sidebar nav a.activo {
+    background: #2563eb;
+    color: #fff;
+    transform: translateX(5px);
 }
 
 /*=====================================
     CONTENIDO
 =====================================*/
 
-.contenido{
-    margin-left:260px;
-    width:calc(100% - 260px);
-    padding:40px;
+.contenido {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 40px;
 }
 
-.contenido h2{
-    color:#1565C0;
-    margin-bottom:25px;
-    font-size:32px;
+.contenido h2 {
+    color: #1565C0;
+    margin-bottom: 25px;
+    font-size: 32px;
 }
 
-.contenido h3{
-    color:#0D47A1;
-    margin:30px 0 20px;
+.contenido h3 {
+    color: #0D47A1;
+    margin: 30px 0 20px;
 }
 
 /*=====================================
     FORMULARIO
 =====================================*/
 
-form{
-    background:#fff;
-    max-width:650px;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+form {
+    background: #fff;
+    max-width: 650px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
 }
 
-form div{
-    display:flex;
-    flex-direction:column;
+form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-label{
-    margin-bottom:8px;
-    color:#0D47A1;
-    font-weight:600;
+label {
+    margin-bottom: 8px;
+    color: #0D47A1;
+    font-weight: 600;
 }
 
-input{
-    width:100%;
-    padding:14px;
-    border:2px solid #BBDEFB;
-    border-radius:10px;
-    font-size:16px;
-    outline:none;
-    transition:.3s;
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #BBDEFB;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
 }
 
-input:focus{
-    border-color:#2196F3;
-    box-shadow:0 0 10px rgba(33,150,243,.3);
+input:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 10px rgba(33, 150, 243, .3);
 }
 
 /*=====================================
     BOTÓN
 =====================================*/
 
-#btn-guardar-cat{
-    padding:14px 25px;
-    border:none;
-    border-radius:10px;
-    background:#1976D2;
-    color:#fff;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+#btn-guardar-cat,
+.btn-guardar {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #1976D2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    width: 100%;
 }
 
-#btn-guardar-cat:hover{
-    background:#0D47A1;
-    transform:translateY(-2px);
+#btn-guardar-cat:hover,
+.btn-guardar:hover {
+    background: #0D47A1;
+    transform: translateY(-2px);
 }
 
 /*=====================================
-    TABLA
+    TABLA (ESCRITORIO)
 =====================================*/
 
-table{
-    width:100%;
-    margin-top:20px;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.tabla {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    margin-top: 20px;
 }
 
-thead{
-    background:#1565C0;
-    color:#fff;
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #1565C0;
+    color: #fff;
 }
 
 th,
-td{
-    padding:16px;
-    text-align:left;
-    border-bottom:1px solid #ddd;
+td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-tbody tr:nth-child(even){
-    background:#f5f9ff;
+tbody tr:nth-child(even) {
+    background: #f5f9ff;
 }
 
-tbody tr:hover{
-    background:#e3f2fd;
+tbody tr:hover {
+    background: #e3f2fd;
 }
+
+/* BOTONES TABLA */
+td button,
+.btn-editar,
+.btn-eliminar {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-editar { background: #22c55e; }
+.btn-eliminar { background: #ef4444; }
 
 /*=====================================
-    RESPONSIVE
+    RESPONSIVE MÓVIL (MENÚ Y VISTA VERTICAL)
 =====================================*/
 
-@media(max-width:900px){
-
-    .dashboard{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        position:relative;
-        width:100%;
-        height:auto;
-        padding:20px;
-    }
-
-    .sidebar h2{
-        margin-bottom:20px;
-    }
-
-    .sidebar nav{
-        flex-direction:row;
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:10px;
-    }
-
-    .sidebar nav a{
-        margin-bottom:0;
-    }
-
-    .contenido{
-        margin-left:0;
-        width:100%;
-        padding:25px;
-    }
-
+.btn-hamburguesa,
+.btn-cerrar-menu,
+.overlay-menu {
+    display: none;
 }
 
-@media(max-width:768px){
+@media(max-width: 768px) {
 
-    .contenido h2{
-        font-size:26px;
+    /* 1. Botón Hamburguesa Fijo */
+    .btn-hamburguesa {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1005;
+        background-color: #0f172a;
+        color: #ffffff;
+        border: none;
+        font-size: 22px;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    form{
-        max-width:100%;
+    /* 2. Menú Lateral Oculto fuera de pantalla */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -280px !important;
+        width: 260px !important;
+        height: 100vh !important;
+        z-index: 1010 !important;
+        transition: left 0.3s ease !important;
+        background-color: #0f172a !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
     }
 
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
+    .sidebar.activo {
+        left: 0 !important;
     }
 
+    .btn-cerrar-menu {
+        display: block !important;
+        align-self: flex-end;
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 30px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .overlay-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .overlay-menu.activo {
+        display: block !important;
+    }
+
+    /* 3. Reajuste de la sección principal */
+    .contenido {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 70px 15px 25px 15px !important;
+    }
+
+    .contenido h2 {
+        font-size: 24px;
+    }
+
+    form {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .tabla {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* 4. Conversión de Tabla a Tarjetas a lo largo */
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        background: #ffffff;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px dashed #e2e8f0;
+    }
+
+    td:last-child {
+        border-bottom: none;
+        margin-top: 10px;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    /* Labels dinámicos a la izquierda */
+    td:nth-of-type(1)::before { content: "ID / Código:"; font-weight: bold; color: #64748b; }
+    td:nth-of-type(2)::before { content: "Categoría:"; font-weight: bold; color: #64748b; }
+
+    td button, .btn-editar, .btn-eliminar {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+    }
 }

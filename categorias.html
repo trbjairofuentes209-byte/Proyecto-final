@@ -11,16 +11,22 @@
 </head>
 <body>
 
-  <div class="dashboard">
-    <aside class="sidebar">
+   <div class="dashboard">
+    
+    <button id="btn-hamburguesa" class="btn-hamburguesa" aria-label="Abrir menú">☰</button>
+    
+    <div id="overlay-menu" class="overlay-menu"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <button id="btn-cerrar-menu" class="btn-cerrar-menu" aria-label="Cerrar menú">&times;</button>
       <h2>SmartInventory</h2>
       <nav>
         <a href="dashboard.html">🏠 Inicio</a>
         <a href="productos.html">📦 Productos</a>
         <a href="categorias.html">📋 Categorías</a>
-        <a href="ventas.html" id="Ventas">📋 Ventas</a>
-        <a href="perfil.html" id="MiPerfil">👤 Mi Perfil</a>
-        <a href="login.html" id="cerrarSesion">🚪 Cerrar sesión</a>
+        <a href="ventas.html">📋 Ventas</a>
+        <a href="perfil.html">👤 Mi Perfil</a>
+        <a href="login.html">🚪 Cerrar sesión</a>
       </nav>
     </aside>
 
@@ -60,6 +66,7 @@
     </main>
   </div>
 
+  <script src="js/menu.js"></script>
   <script type="module" src="js/categorias.js"></script>
   <script src="js/pwa.js"></script>
 </body>
