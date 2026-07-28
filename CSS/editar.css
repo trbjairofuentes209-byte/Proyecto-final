@@ -1,163 +1,198 @@
 /*=====================================
-  RESET
+   RESET & BASE LAYOUT
 =====================================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:linear-gradient(135deg,#eaf4ff,#d6ebff);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:30px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+    width: 100%;
 }
 
 /*=====================================
-  CONTENEDOR
+   ESTRUCTURA DEL DASHBOARD Y SIDEBAR
 =====================================*/
+.dashboard {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
 
-#seccion-editar-producto{
-    width:100%;
-    max-width:650px;
-    background:#ffffff;
-    border-radius:15px;
-    padding:35px;
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-    border-top:6px solid #0d6efd;
+.sidebar {
+    width: 250px;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar nav a:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+/* Área donde se centra el formulario a la derecha */
+.contenido {
+    flex-grow: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f1f5f9;
 }
 
 /*=====================================
-  TITULO
+   TARJETA DEL FORMULARIO
 =====================================*/
+#seccion-editar-producto {
+    width: 100%;
+    max-width: 550px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-top: 6px solid #2563eb;
+}
 
-#seccion-editar-producto h2{
-    text-align:center;
-    color:#0d47a1;
-    margin-bottom:30px;
-    font-size:30px;
+#seccion-editar-producto h2 {
+    text-align: center;
+    color: #1d4ed8;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
 }
 
 /*=====================================
-  FORMULARIO
+   INPUTS Y CAMPOS
 =====================================*/
-
-#form-editar-producto{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+#form-editar-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-#form-editar-producto div{
-    display:flex;
-    flex-direction:column;
+.form-group, 
+#form-editar-producto div {
+    display: flex;
+    flex-direction: column;
 }
 
-label{
-    font-weight:600;
-    color:#0d47a1;
-    margin-bottom:8px;
+label {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
 }
-
-/*=====================================
-  INPUTS
-=====================================*/
 
 input,
-textarea{
-    width:100%;
-    padding:12px 15px;
-    border:2px solid #b6d4fe;
-    border-radius:10px;
-    font-size:16px;
-    transition:.3s;
-    outline:none;
-    background:#f8fbff;
+textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    background: #f8fbff;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 input:focus,
-textarea:focus{
-    border-color:#0d6efd;
-    box-shadow:0 0 10px rgba(13,110,253,.3);
-    background:#ffffff;
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    background: #ffffff;
 }
 
-textarea{
-    resize:vertical;
-}
-
-/*=====================================
-  BOTONES
-=====================================*/
-
-button{
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-#btn-actualizar{
-    background:#0d6efd;
-    color:#fff;
-}
-
-#btn-actualizar:hover{
-    background:#0b5ed7;
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(13,110,253,.35);
-}
-
-#btn-cancelar-edicion{
-    background:#6c757d;
-    color:#fff;
-}
-
-#btn-cancelar-edicion:hover{
-    background:#5c636a;
-    transform:translateY(-2px);
+textarea {
+    resize: vertical;
 }
 
 /*=====================================
-  RESPONSIVE
+   BOTONES Y ACCIONES
 =====================================*/
-
-@media(max-width:768px){
-
-    #seccion-editar-producto{
-        padding:25px;
-    }
-
-    #seccion-editar-producto h2{
-        font-size:24px;
-    }
-
-    button{
-        font-size:15px;
-    }
+.form-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-@media(max-width:480px){
+#btn-actualizar {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: #ffffff;
+    transition: background-color 0.2s, transform 0.1s;
+}
 
-    body{
-        padding:15px;
+#btn-actualizar:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-cancelar {
+    display: block;
+    text-align: center;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px;
+    transition: color 0.2s;
+}
+
+.btn-cancelar:hover {
+    color: #0f172a;
+}
+
+/*=====================================
+   RESPONSIVE
+=====================================*/
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
     }
 
-    #seccion-editar-producto{
-        padding:20px;
+    .sidebar {
+        width: 100%;
     }
 
-    input,
-    textarea,
-    button{
-        font-size:14px;
+    .contenido {
+        padding: 20px 15px;
+    }
+
+    #seccion-editar-producto {
+        padding: 25px;
     }
 }
