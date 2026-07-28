@@ -59,7 +59,7 @@ export async function cargarProductos() {
   document.querySelectorAll('.btn-editar').forEach(boton => {
     boton.addEventListener('click', (e) => {
       const id = e.target.getAttribute('data-id');
-      window.location.href = `editar.html?id=${id}`;
+    window.location.href = `editar.html?id=${id}`;
     });
   });
 }
