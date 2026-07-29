@@ -2,186 +2,185 @@
    ESTILOS GENERALES
 =========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url("../img/fondo.jpg") center center/cover no-repeat;
-    overflow:hidden;
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/fondo.jpg") center center/cover no-repeat;
+    background-color: #1e293b; /* Color de respaldo si no carga la imagen */
+    padding: 20px;
 }
 
 /* Capa oscura sobre la imagen */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(160, 154, 154, 0.55);
+    z-index: 1;
+}
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
+/* Contenedor Principal */
+.contenedor {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tarjeta de Cristal (Glassmorphism) */
+.login-box {
+    width: 100%;
+    padding: 35px 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, .25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .4);
+    text-align: center;
 }
 
 /* ===========================
-   FORMULARIO
+   LOGO Y ENCABEZADO
 =========================== */
 
-#formLogin{
-
-    position:relative;
-    z-index:2;
-
-    width:420px;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    box-shadow:0 8px 32px rgba(0,0,0,.35);
-
+.logo {
+    color: #fff;
+    margin-bottom: 25px;
 }
 
-/* ===========================
-   TITULO
-=========================== */
+.logo i {
+    font-size: 45px;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
 
-#formLogin h2{
+.logo h1 {
+    font-size: 26px;
+    font-weight: 700;
+}
 
-    color:#fff;
-
-    text-align:center;
-
-    margin-bottom:30px;
-
-    font-size:32px;
-
+.logo p {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-top: 4px;
 }
 
 /* ===========================
    INPUTS
 =========================== */
 
-#formLogin input{
-
-    width:100%;
-
-    padding:14px;
-
-    margin-bottom:18px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:rgba(255,255,255,.20);
-
-    color:#fff;
-
-    font-size:16px;
-
+#formLogin input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .20);
+    color: #fff;
+    font-size: 16px; /* Evita zoom automático en Safari iOS */
+    transition: all 0.3s ease;
 }
 
-#formLogin input::placeholder{
-
-    color:#eee;
-
+#formLogin input::placeholder {
+    color: #e2e8f0;
 }
 
-#formLogin input:focus{
-
-    outline:none;
-
-    background:rgba(255,255,255,.28);
-
+#formLogin input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, .30);
+    border-color: #38bdf8;
 }
 
 /* ===========================
    BOTÓN
 =========================== */
 
-#formLogin button{
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#2563eb;
-
-    color:white;
-
-    font-size:17px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+#formLogin button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 5px;
 }
 
-#formLogin button:hover{
-
-    background:#1d4ed8;
-
-    transform:scale(1.03);
-
+#formLogin button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
 }
 
 /* ===========================
-   ENLACES
+   MENSAJES Y ENLACEN
 =========================== */
 
-#formLogin p{
-
-    color:white;
-
-    margin-top:20px;
-
-    text-align:center;
-
+#mensajeLogin {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-#formLogin a{
-
-    color:#7dd3fc;
-
-    text-decoration:none;
-
+.extras, .registro {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #e2e8f0;
 }
 
-#formLogin a:hover{
+#formLogin a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
 
-    text-decoration:underline;
-
+#formLogin a:hover {
+    color: #7dd3fc;
+    text-decoration: underline;
 }
 
 /* ===========================
-   RESPONSIVE
+   ADAPTACIÓN MÓVIL (RESPONSIVE)
 =========================== */
 
-@media(max-width:480px){
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
 
-#formLogin{
+    .login-box {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
 
-width:90%;
+    .logo i {
+        font-size: 38px;
+    }
 
-padding:30px;
+    .logo h1 {
+        font-size: 22px;
+    }
 
-}
-
+    .logo p {
+        font-size: 13px;
+    }
 }
